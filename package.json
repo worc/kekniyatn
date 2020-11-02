@@ -7,7 +7,8 @@
     "build": "cross-env NODE_ENV=production webpack",
     "start": "cross-env NODE_ENV=development webpack-dev-server --hot --inline --config webpack.config.js",
     "storybook": "start-storybook",
-    "test": "jest"
+    "test": "jest",
+    "test:debug": "node --inspect-brk ./node_modules/jest/bin/jest.js --runInBand"
   },
   "author": "worc <curtis.s.mcallister@gmail.com>",
   "license": "ISC",
