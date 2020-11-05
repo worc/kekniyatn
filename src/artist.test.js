@@ -10,7 +10,7 @@ describe('artist api request', () => {
           artist_id: '1SlPJ2l80sMnCHpz1wB8nT', // blue scholars
           access_token,
         }).then(response => {
-          console.log(response)
+          expect(() => response.data.items.length > 0)
         }).catch(error => {
           console.error(error)
           done(error)
