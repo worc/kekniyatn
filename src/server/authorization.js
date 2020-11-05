@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from 'axios'
 
 export function getAccessToken ({ providedClientId = '', providedClientSecret = '' } = {}) {
   const client_id = providedClientId || process.env.SPOTIFY_CLIENT_ID
