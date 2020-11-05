@@ -1,8 +1,8 @@
 import axios from "axios";
 
-export function getAccessToken () {
-  const client_id = process.env.SPOTIFY_CLIENT_ID
-  const client_secret = process.env.SPOTIFY_CLIENT_SECRET
+export function getAccessToken ({ providedClientId = '', providedClientSecret = '' } = {}) {
+  const client_id = providedClientId || process.env.SPOTIFY_CLIENT_ID
+  const client_secret = providedClientSecret || process.env.SPOTIFY_CLIENT_SECRET
   const params = new URLSearchParams()
   params.append('grant_type', 'client_credentials')
 

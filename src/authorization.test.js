@@ -25,5 +25,35 @@ describe('spotify authorization', () => {
         done()
       })
     })
+
+    test('given invalid client, returns an error message', done => {
+      const request = getAccessToken({
+        providedClientId: 'bad client id',
+        providedClientSecret: 'bad client secret'
+      })
+
+      request.catch(error => {
+        expect(() => error.response.status === 400)
+        expect(() => error.response.data.error === 'invalid_client')
+        expect(() => error.response.data.description === 'Invalid client')
+      }).finally(() => {
+        done()
+      })
+    })
+
+    test('given valid client and invalid secret, returns an error message', done => {
+      const request = getAccessToken({
+        providedClientId: process.env.SPOTIFY_CLIENT_ID,
+        providedClientSecret: 'bad client secret'
+      })
+
+      request.catch(error => {
+        expect(() => error.response.status === 400)
+        expect(() => error.response.data.error === 'invalid_client')
+        expect(() => error.response.data.description === 'Invalid client secret')
+      }).finally(() => {
+        done()
+      })
+    })
   })
 })
