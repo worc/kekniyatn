@@ -10,6 +10,7 @@
     "test": "jest",
     "test:debug": "node --inspect-brk ./node_modules/jest/bin/jest.js --runInBand"
   },
+  "type": "module",
   "author": "worc <curtis.s.mcallister@gmail.com>",
   "license": "ISC",
   "dependencies": {
