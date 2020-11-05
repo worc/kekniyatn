@@ -1,9 +1,17 @@
-import { call, put } from 'redux-saga/effects'
-import * as Authorization from "./authorization";
+import { call, put, takeLatest } from 'redux-saga/effects'
+import axios from 'axios'
+
+// todo parameterize url:
+export const request = () => {
+  return axios.request({
+    method: 'GET',
+    url: 'localhost:3000',
+  })
+}
 
 export function * getAccessToken () {
   try {
-    const response = yield call(Authorization.getAccessToken)
+    const response = yield call(request)
     yield put({
       type: 'RECEIVED_ACCESS_TOKEN',
       token: response.data.access_token,
@@ -16,4 +24,8 @@ export function * getAccessToken () {
       error_description: e.response.data.description,
     })
   }
+}
+
+export default function * () {
+  yield takeLatest('REQUEST_ACCESS_TOKEN', getAccessToken)
 }

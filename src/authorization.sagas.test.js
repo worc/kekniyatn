@@ -1,13 +1,12 @@
 import { call, put } from 'redux-saga/effects'
-import * as Sagas from "./authorization.sagas";
-import * as API from './authorization'
+import * as Sagas from './authorization.sagas'
 
 describe('Authorization sagas', () => {
   describe('getAccessToken *', () => {
     test('success', () => {
       const generator = Sagas.getAccessToken()
       const callStep = generator.next().value
-      expect(callStep).toEqual(call(API.getAccessToken))
+      expect(callStep).toEqual(call(Sagas.request))
 
       const testResponse = {
         data: {
@@ -25,7 +24,7 @@ describe('Authorization sagas', () => {
     test('error', () => {
       const generator = Sagas.getAccessToken()
       const callStep = generator.next().value
-      expect(callStep).toEqual(call(API.getAccessToken))
+      expect(callStep).toEqual(call(Sagas.request))
 
       const testError = {
         response: {
