@@ -1,7 +1,7 @@
 import { call, put } from 'redux-saga/effects'
 import * as Authorization from "./authorization";
 
-export function * getAccessToken (message) {
+export function * getAccessToken () {
   try {
     const response = yield call(Authorization.getAccessToken)
     yield put({
