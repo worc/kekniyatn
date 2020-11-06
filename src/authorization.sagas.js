@@ -1,11 +1,13 @@
-import { call, put, takeLatest } from 'redux-saga/effects'
+import { call, put, takeLatest } from 'redux-saga/dist/redux-saga-effects-npm-proxy.esm.js'
 import axios from 'axios'
 
 // todo parameterize url:
 export const request = () => {
   return axios.request({
     method: 'GET',
-    url: 'localhost:3000',
+    url: 'http://localhost:3000/access_token',
+  }).catch(error => {
+    console.error(error)
   })
 }
 
@@ -14,7 +16,7 @@ export function * getAccessToken () {
     const response = yield call(request)
     yield put({
       type: 'RECEIVED_ACCESS_TOKEN',
-      token: response.data.access_token,
+      token: response.data.token,
       // todo token_expiration: response.data.expires_in + Date.now() ?
     })
   } catch (e) {
