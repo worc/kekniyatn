@@ -12,13 +12,16 @@ export const request = () => {
 }
 
 export function * getAccessToken () {
+  // todo check redux for live token and return that?
   try {
     const response = yield call(request)
+    const token = response.data.token
     yield put({
       type: 'RECEIVED_ACCESS_TOKEN',
-      token: response.data.token,
+      token,
       // todo token_expiration: response.data.expires_in + Date.now() ?
     })
+    return token
   } catch (e) {
     yield put({
       type: 'RECEIVED_ACCESS_TOKEN_FAILED',
