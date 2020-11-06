@@ -1,5 +1,7 @@
 /* global require, process, module, __dirname */
-
+// import HtmlWebpackPlugin from 'html-webpack-plugin'
+// import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
+// import path from 'path'
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 const path = require('path')
