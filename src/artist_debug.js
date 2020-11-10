@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 
+import Album from './album.js'
+
 export const ARTIST_DEBUG_TYPES = {
   REQUEST_ALBUMS: 'REQUEST_ALBUMS',
   RECEIVED_ALBUMS: 'RECEIVED_ALBUMS',
@@ -35,9 +37,9 @@ export default function () {
   return (
     <>
       <h1>artist stuff</h1>
-      { albums.map( album => {
-        return <div>{ album.name }</div>
-      })}
+      <div style={{ width: '100%' }}>
+        { albums.map( album => <Album album={ album }/> )}
+      </div>
     </>
   )
 }
