@@ -8,6 +8,7 @@ import store from './store'
 
 import Home from './home'
 import Timeline from './timeline'
+import Playlists from './views/playlists'
 
 const root = ReactDOM.createRoot(document.getElementById('app') as HTMLElement)
 
@@ -24,6 +25,7 @@ root.render(
       <Switch>
         <Route exact path='/' component={ Home }/>
         <Route path='/timeline' component={Timeline}/>
+        <Route path='/playlists' component={Playlists}/>
       </Switch>
       <footer>
         <Link to='/'>Home</Link>

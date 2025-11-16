@@ -9,6 +9,9 @@
     "module": "es6",
     "moduleResolution": "node",
     "outDir": "./dist/",
+    "paths": {
+      "Kekniyatn": ["./src/types/globals.d.ts"]
+    },
     "resolveJsonModule": true,
     "rootDir": ".",
     "sourceMap": true,

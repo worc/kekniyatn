@@ -4,12 +4,14 @@ import createSagaMiddleware from 'redux-saga'
 import rootSaga from './root_saga'
 import { accessToken } from "./authorization.reducer"
 import { artistDebug } from "./artist_debug";
+import { playlistReducer } from './sagas/playlist_sagas';
 
 const sagaMiddleware = createSagaMiddleware()
 
 const rootReducer = combineReducers({
   accessToken,
-  artistDebug
+  artistDebug,
+  playlistReducer,
 })
 
 const store = createStore(
