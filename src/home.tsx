@@ -1,6 +1,6 @@
 import React from 'react'
-import TokenDebug from './token_debug.js'
-import ArtistDebug from './artist_debug.js'
+import TokenDebug from './token_debug'
+import ArtistDebug from './artist_debug'
 
 export default function () {
   return (

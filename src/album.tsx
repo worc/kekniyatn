@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function ({ album }) {
+export default function ({ album }: { album: Record<string, any> }) {
   console.log(album)
 
   return (

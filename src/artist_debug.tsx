@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 
-import Album from './album.js'
+import Album from './album'
 
 export const ARTIST_DEBUG_TYPES = {
   REQUEST_ALBUMS: 'REQUEST_ALBUMS',
@@ -12,7 +12,7 @@ const defaultState = {
   albums: [],
 }
 
-export function artistDebug (state = defaultState, message) {
+export function artistDebug (state = defaultState, message: Record<string, string>) {
   switch (message.type) {
     case ARTIST_DEBUG_TYPES.RECEIVED_ALBUMS:
       return {
@@ -26,9 +26,9 @@ export function artistDebug (state = defaultState, message) {
 
 export default function () {
   const dispatch = useDispatch()
-  const albums = useSelector(state => {
+  const albums: Array<Record<string, any>> = useSelector<{ artistDebug: { albums: Array<Record<string, any>> }}>(state => {
     return state.artistDebug.albums
-  })
+  }) as unknown as Array<Record<string, any>>
 
   useEffect(() => {
     dispatch({ type: ARTIST_DEBUG_TYPES.REQUEST_ALBUMS, artist_id: '1SlPJ2l80sMnCHpz1wB8nT' })

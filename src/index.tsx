@@ -1,13 +1,15 @@
 import React from 'react'
-import { render } from 'react-dom'
+import ReactDOM from 'react-dom/client'
 import { Provider } from 'react-redux'
 import { BrowserRouter, Switch, Route, Link } from 'react-router-dom'
 import { createGlobalStyle } from 'styled-components'
 
-import store from './store.js'
+import store from './store'
 
-import Home from './home.js'
-import Timeline from './timeline.js'
+import Home from './home'
+import Timeline from './timeline'
+
+const root = ReactDOM.createRoot(document.getElementById('app') as HTMLElement)
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -15,7 +17,7 @@ const GlobalStyle = createGlobalStyle`
   }
 `
 
-render(
+root.render(
   <Provider store={ store }>
     <GlobalStyle/>
     <BrowserRouter>
@@ -28,6 +30,5 @@ render(
         <Link to='/timeline'>Timeline</Link>
       </footer>
     </BrowserRouter>
-  </Provider>,
-  document.getElementById('app')
+  </Provider>
 )

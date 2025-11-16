@@ -1,5 +1,5 @@
 import { call, put } from 'redux-saga/effects'
-import * as Sagas from './authorization.sagas'
+import * as Sagas from './authorization.sagas.js'
 
 describe('Authorization sagas', () => {
   describe('getAccessToken *', () => {

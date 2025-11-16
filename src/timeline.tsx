@@ -73,7 +73,7 @@ const DayHash = styled.div`
 const startDate = new Date(2013, 11, 1)
 const endDate = new Date(2014, 8, 18)
 
-function Timeline ({ start_date, end_date }) {
+function Timeline ({ start_date, end_date }: { start_date: Date, end_date: Date }) {
   let workingDate = start_date
   const components = []
   while (isBefore(workingDate, end_date)) {
@@ -90,7 +90,7 @@ function Timeline ({ start_date, end_date }) {
   return components
 }
 
-export default function ({ start_date, end_date }) {
+export default function ({ start_date, end_date }: {start_date: Date, end_date: Date }) {
   return (
     <Container>
       <Timeline start_date={ startDate } end_date={ endDate }/>

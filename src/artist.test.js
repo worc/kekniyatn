@@ -1,5 +1,5 @@
 import { getAccessToken } from "./authorization";
-import { getAlbums } from "./artist";
+import { getAlbums } from "./artist.js";
 
 describe('artist api request', () => {
   describe('albums', () => {

@@ -2,6 +2,7 @@
 // import { fileURLToPath } from 'url'
 // import path, { dirname } from 'path'
 // import https from 'https'
+import 'dotenv/config'
 import express from 'express'
 import { getAccessToken } from './authorization.js'
 

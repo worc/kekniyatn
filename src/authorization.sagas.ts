@@ -1,4 +1,4 @@
-import { call, put, takeLatest } from 'redux-saga/dist/redux-saga-effects-npm-proxy.esm.js'
+import { call, put, takeLatest } from 'redux-saga/effects'
 import axios from 'axios'
 
 // todo parameterize url:
@@ -11,7 +11,7 @@ export const request = () => {
   })
 }
 
-export function * getAccessToken () {
+export function * getAccessToken () : any | unknown {
   // todo check redux for live token and return that?
   try {
     const response = yield call(request)
@@ -25,7 +25,9 @@ export function * getAccessToken () {
   } catch (e) {
     yield put({
       type: 'RECEIVED_ACCESS_TOKEN_FAILED',
+      // @ts-ignore
       error_type: e.response.data.error,
+      // @ts-ignore
       error_description: e.response.data.description,
     })
   }
